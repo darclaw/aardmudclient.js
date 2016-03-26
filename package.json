@@ -1,0 +1,23 @@
+{
+  "name": "aardmudclient.js",
+  "version": "0.0.1",
+  "description": "an aardwolf mud client",
+  "main": "aardmudclient.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darclaw/aardmudclient.js.git"
+  },
+  "keywords": [
+    "aardwolf",
+    "mud-client"
+  ],
+  "author": "David Crosby",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/darclaw/aardmudclient.js/issues"
+  },
+  "homepage": "https://github.com/darclaw/aardmudclient.js#readme"
+}
