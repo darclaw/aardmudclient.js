@@ -1,0 +1,7 @@
+{
+	"server":{
+		"port": 4000,
+		"host": "aardwolf.org"
+	},
+	"historyLength":200
+}

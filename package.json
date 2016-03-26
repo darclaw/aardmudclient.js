@@ -19,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/darclaw/aardmudclient.js/issues"
   },
-  "homepage": "https://github.com/darclaw/aardmudclient.js#readme"
+  "homepage": "https://github.com/darclaw/aardmudclient.js#readme",
+  "dependencies": {
+    "ansi-escape-sequences": "^2.2.2",
+    "blessed": "^0.1.81",
+    "net": "^1.0.2",
+    "readline": "^1.3.0"
+  }
 }

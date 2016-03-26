@@ -1,0 +1,7 @@
+connect to aardwolf
+	on data
+		parse output (look for events)
+		display output to section of screen
+	on user input
+		parse (look for alias, etc)
+			send to aardwolf

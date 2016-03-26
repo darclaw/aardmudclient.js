@@ -1,0 +1,48 @@
+ 30    main = blessed.box({                             |  4    smartCSR:true                                   |  1 var blessed = require('blessed');
+ 31       top:'0',                                      |  5 });                                                |  2 var readline = require('readline');
+ 32       left: '0',                                    |  6 var map;                                           |  3 const net = require('net');
+ 33       width: '66%',                                 |  7 var main;                                          |  4
+ 34       height: '100%-2',                             |  8 var inv;                                           |  5 var myscreen = require('./controllers/screen');
+ 35       content: 'Hello {bold}world{/bold}!',         |  9 var input;                                         |  6 var mysocket = require('./controllers/socket');
+ 36       tags: true,                                   | 10                                                    |  7
+ 37       border: {                                     | 11 var linestr="";                                    |  8
+ 38          type: 'line'                               | 12                                                    |  9 var config = require('./config.json');
+ 39       },                                            | 13                                                    | 10
+ 40       style: {                                      | 14 screen.key(['C-c'], function(ch, key) {            | 11 //connect to server
+ 41          fg: 'white',                               | 15    console.log("quiting");                         | 12 mysocket.initialize();
+ 42          bg: 'magenta',                             | 16    return process.exit(0);                         | 13 //create screen
+ 43          border: {                                  | 17 });                                                | 14 myscreen.initialize();
+ 44             fg: '#f0f0f0'                           | 18 screen.on('keypress', function(ch,key){            | 15
+ 45          },                                         | 19    linestr+=key.sequence;                          | 16
+ 46          hover: {                                   | 20    input.setContent(linestr);                      | 17 ////set up readline
+ 47             bg: 'green'                             | 21    screen.render();                                | 18 //rl= readline.creatInterface({
+ 48          }                                          | 22    if(key.sequence=='\r'){                         | 19 // input: process.stdin,
+ 49       },                                            | 23       //parse string                               | 20 // output: process.stdout
+ 50       scrollable: true,                             | 24       //send to server                             | 21 //});
+ 51       scrollbar:{                                   | 25    }                                               | 22
+ 52          bg:'blue'                                  | 26 });                                                | 23
+ 53       }                                             | 27                                                    | 24 socket.on('data',function(data){
+ 54    });                                              | 28 exports.initialize=function(){                     | 25    //add parsing data
+ 55    input = blessed.box({                            | 29    screen.title = "change me";                     | 26
+ 56       bottom:0,                                     | 30    main = blessed.box({                            | 27    myscreen.updateMain(data.toString());
+ 57       right:0,                                      | 31       top:'0',                                     | 28
+ 58       width:'66%',                                  | 32       left: '0',                                   | 29 });
+ 59       heigth:'2',                                   | 33       width: '66%',                                |~
+ 60       content:'prompt',                             | 34       height: '100%-2',                            |~
+ 61       style:{                                       | 35       content: 'Hello {bold}world{/bold}!',        |~
+ 62          fg:'white',                                | 36       tags: true,                                  |~
+ 63          bg:'black',                                | 37       border: {                                    |~
+ 64          border:{                                   | 38          type: 'line'                              |~
+ 65             fg:'#f0f0f0'                            | 39       },                                           |~
+ 66          }                                          | 40       style: {                                     |~
+ 67       }                                             | 41          fg: 'white',                              |~
+ 68    });                                              | 42          bg: 'magenta',                            |~
+ 69    screen.append(input);                            | 43          border: {                                 |~
+ 70    screen.append(main);                             | 44             fg: '#f0f0f0'                          |~
+ 71    screen.render();                                 | 45          },                                        |~
+ 72 }                                                   | 46          hover: {                                  |~
+ 73 exports.updateMain=function(str){                   | 47             bg: 'green'                            |~
+ 74    main.setContent(str);                            | 48          }                                         |~
+ 75    screen.render();                                 | 49       },                                           |~
+./controllers/screen.js                                  ./controllers/screen.js                                 aardmudclient.js [+]
+
